@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: rfp-assistant-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_ENVIRONMENT
+        sync: false
+      - key: PINECONE_INDEX_NAME
+        sync: false
+    disk:
+      name: uploads
+      mountPath: /uploads
+      sizeGB: 1
